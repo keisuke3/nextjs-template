@@ -1,3 +1,112 @@
 {
-  "extends": "next/core-web-vitals"
+  "plugins": ["strict-dependencies", "unused-imports"],
+  "extends": [
+    "airbnb",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "next/core-web-vitals",
+    "prettier"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "rules": {
+    "import/order": [
+      "error",
+      {
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          ["parent", "sibling"],
+          "object",
+          "type",
+          "index"
+        ],
+        "newlines-between": "always",
+        "pathGroupsExcludedImportTypes": ["builtin"],
+        "alphabetize": { "order": "asc", "caseInsensitive": true },
+        "pathGroups": [
+          { "pattern": "@/libs/**", "group": "internal", "position": "before" },
+          {
+            "pattern": "@/hooks/**",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "@/globalStates/**",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "@/repositories/**",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "@/models/**",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "@/components/model/**",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "@/components/ui/**",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "@/styles/**",
+            "group": "internal",
+            "position": "before"
+          }
+        ]
+      }
+    ],
+    "strict-dependencies/strict-dependencies": [
+      "error",
+      [
+        {
+          "module": "src/components/page",
+          "allowReferenceFrom": ["src/pages"],
+          "allowSameModule": false
+        }
+      ]
+    ],
+    "no-unused-vars": "off",
+    "unused-imports/no-unused-imports": "error",
+    "react/jsx-filename-extension": [
+      "error",
+      { "extensions": [".jsx", ".tsx"] }
+    ],
+    "react/jsx-props-no-spreading": "off",
+    "import/prefer-default-export": "off",
+    "import/no-default-export": "error",
+    "react/function-component-definition": [
+      2,
+      {
+        "namedComponents": "arrow-function",
+        "unnamedComponents": "arrow-function"
+      }
+    ],
+    "arrow-body-style": "off",
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ],
+    "camelcase": ["error", { "ignoreImports": true }]
+  },
+  "overrides": [
+    {
+      "files": ["*.stories.tsx", "src/pages/**/*"],
+      "rules": { "import/no-default-export": "off" }
+    }
+  ]
 }
