@@ -107,6 +107,12 @@
     {
       "files": ["*.stories.tsx", "src/pages/**/*"],
       "rules": { "import/no-default-export": "off" }
+    },
+    {
+      "files": ["./jest.config.js"],
+      "rules": {
+        "@typescript-eslint/no-var-requires": "off"
+      }
     }
   ]
 }

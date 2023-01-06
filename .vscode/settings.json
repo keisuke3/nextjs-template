@@ -5,5 +5,7 @@
     "source.addMissingImports": true,
     "source.fixAll.eslint": true,
     "source.fixAll.stylelint": true
-  }
+  },
+  "jest.jestCommandLine": "npm run test --",
+  "jest.autoRun": "off"
 }
