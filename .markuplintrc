@@ -1,0 +1,39 @@
+{
+  "parser": {
+    "\\.[jt]sx?$": "@markuplint/jsx-parser"
+  },
+  "specs": {
+    "\\.[jt]sx?$": "@markuplint/react-spec"
+  },
+  "extends": [
+    "markuplint:recommended",
+    "markuplint:recommended-react"
+  ],
+  "rules": {
+    "attr-duplication": true,
+    "deprecated-attr": true,
+    "deprecated-element": true,
+    "doctype": true,
+    "id-duplication": true,
+    "ineffective-attr": true,
+    "invalid-attr": {
+      "options": {
+        "ignoreAttrNamePrefix": [
+          "jsx",
+          "global"
+        ]
+      }
+    },
+    "label-has-control": true,
+    "landmark-roles": true,
+    "no-empty-palpable-content": true,
+    "no-refer-to-non-existent-id": true,
+    "permitted-contents": true,
+    "required-attr": true,
+    "required-h1": true,
+    "use-list": [
+      "・"
+    ],
+    "wai-aria": true
+  }
+}

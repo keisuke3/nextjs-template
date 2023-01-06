@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "prepare": "husky install",
+    "lint:html": "markuplint 'src/**/*.@(jsx|tsx|html)'",
     "lint:js": "eslint --fix '**/*.@(js|ts|tsx)'",
     "lint:css": "stylelint --fix '**/*.css'",
     "format": "prettier --ignore-path .gitignore --write .",
@@ -20,6 +21,8 @@
     "react-dom": "18.2.0"
   },
   "devDependencies": {
+    "@markuplint/jsx-parser": "^3.0.1",
+    "@markuplint/react-spec": "^3.0.1",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@types/node": "^18.11.18",
@@ -38,6 +41,7 @@
     "jest": "^29.3.1",
     "jest-environment-jsdom": "^29.3.1",
     "lint-staged": "^13.1.0",
+    "markuplint": "^3.0.1",
     "micromatch": "^4.0.5",
     "prettier": "^2.8.1",
     "stylelint": "^14.16.1",
