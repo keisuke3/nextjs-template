@@ -8,9 +8,21 @@ export default (allStagedFiles) => {
   ])
   const stylelintFiles = micromatch(allStagedFiles, ['**/*.css'])
   const prettierFiles = micromatch(allStagedFiles, ['**/*.**'])
-  return [
-    `prettier --ignore-path .gitignore --write ${prettierFiles.join(' ')}`,
-    `eslint --fix ${eslintFiles.join(' ')}`,
-    `stylelint --fix ${stylelintFiles.join(' ')}`,
-  ]
+
+  const commandList = {
+    'prettier --ignore-path .gitignore --write': prettierFiles,
+    'eslint --fix': eslintFiles,
+    'stylelint --fix': stylelintFiles,
+  }
+
+  const createExecuteCommand = (commandObj) => {
+    return Object.entries(commandObj)
+      .map(([key, value]) => {
+        if (!value.length) return
+        return `${key} ${value.join(' ')}`
+      })
+      .filter((e) => e)
+  }
+
+  return createExecuteCommand(commandList)
 }
