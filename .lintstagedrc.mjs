@@ -6,7 +6,11 @@ export default (allStagedFiles) => {
     '**/*.ts',
     '**/*.tsx',
   ])
-  const stylelintFiles = micromatch(allStagedFiles, ['**/*.css'])
+  const stylelintFiles = micromatch(allStagedFiles, [
+    '**/*.css',
+    '**/*.ts',
+    '**/*.tsx',
+  ])
   const prettierFiles = micromatch(allStagedFiles, ['**/*.**'])
 
   const commandList = {

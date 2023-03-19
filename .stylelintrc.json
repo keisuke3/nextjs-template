@@ -1,11 +1,21 @@
 {
-  "plugins": ["stylelint-order"],
+  "plugins": [
+    "stylelint-order",
+    "stylelint-declaration-block-no-ignored-properties"
+  ],
   "extends": [
     "stylelint-config-standard",
     "stylelint-config-recess-order",
     "stylelint-config-prettier"
   ],
   "rules": {
-    "order/order": ["custom-properties", "declarations"]
-  }
+    "order/order": ["custom-properties", "declarations"],
+    "plugin/declaration-block-no-ignored-properties": true
+  },
+  "overrides": [
+    {
+      "files": ["src/**/*.{ts,tsx,css}"],
+      "customSyntax": "@stylelint/postcss-css-in-js"
+    }
+  ]
 }
